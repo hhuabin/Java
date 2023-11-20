@@ -1,0 +1,21 @@
+server:
+  port: 5000
+
+spring:
+  main:
+    banner-mode: off
+
+  task:
+    scheduling:
+      thread-name-prefix: spring_task_  # 线程前缀名
+
+  mail:
+    host: smtp.qq.com
+    username: 1584400865@qq.com
+    password: "******"
+
+
+# "" 双引号可以让转义字符生效
+person:
+  name: "bin"
+  age: ${random.int}

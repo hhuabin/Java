@@ -1,0 +1,62 @@
+server:
+  port: 5000
+
+spring:
+  main:
+    banner-mode: off
+
+  datasource:
+    druid:
+      url: jdbc:mysql://localhost:3306/test
+      username: root
+      password: binn
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
+#  cache:
+#    type: redis
+#    redis:
+#      time-to-live: 60s
+#      key-prefix: bin_
+#  redis:
+#    host: localhost
+#    port: 6379
+#    client-type: lettuce
+
+#  cache:
+#    type: ehcache
+#    ehcache:
+#      config: classpath:ehcache.xml
+
+  cache:
+    type: redis
+
+
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto    # 数据库 id 自增
+
+
+jetcache:
+  local:         # 本地仓库
+    default:
+      type: linkedhashmap         # 存储方式
+      keyConvertor: fastjson      # 对象key存储方式
+
+  remote:        # 远程仓库
+    default:
+      type: redis
+      host: localhost
+      port: 6379
+      keyConvertor: fastjson
+      valueEncode: java          # 对象编码方式， 存储对象要继承序列化接口
+      valueDecode: java          # 对象解码方式
+      poolConfig:
+        maxTotal: 50     # 最大连接数
+
+    sms:
+      type: redis
+      host: localhost
+      port: 6379
+      poolConfig:
+        maxTotal: 50     # 最大连接数

@@ -1,0 +1,32 @@
+server:
+  port: 5000
+
+spring:
+  profiles:          # spring 运行环境
+    active: test     # 激活 test 环境
+    group:           # 多环境分组 application-prodDB.yml, application-prodRedis.yml
+      "prod": prodDB,prodRedis
+      "test": testDB,testRedis
+  main:
+    banner-mode: off
+
+  datasource:
+    druid:
+      url: jdbc:mysql://localhost:3306/test
+      username: root
+      password: binn
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto    # 数据库 id 自增
+#  configuration:
+#    map-underscore-to-camel-case: true    # 去掉数据库表名字段名下划线，转化为驼峰
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl  #  MP运行日志
+
+person:
+  age: 99
+  name: bin
+  server-time-out: 3ms
+  data-size: 10MB
