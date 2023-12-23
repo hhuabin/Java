@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+        方式1: 无参构造函数实例化组件
+     -->
+    <!--
+        id: 唯一标识，方便以后获取 Bean
+        class: 类, bean 对象对应的类型
+     -->
+    <bean id="helloBean" class="com.springioc.bean.HelloBean"></bean>
+
+    <!--
+        方式2: 静态工厂方法实例化
+     -->
+    <bean id="helloBean2" class="com.springioc.bean.HelloBean" factory-method="createInstance"></bean>
+
+    <bean id="userDao" class="com.springioc.dao.UserDao"></bean>
+
+    <!--
+        1. 可以通过 <constructor-arg></constructor-arg> 构造函数注入
+        2. 更建议通过 <property></property> 基于Setter方法依赖注入，此时，类里一定要声明对应的 setter 方法
+     -->
+    <bean id="userService" class="com.springioc.service.UserService">
+        <!--
+            name = 属性名
+            ref = 引用bean的id值
+            value= 基本类型值
+         -->
+        <property name="userDao" ref="userDao"></property>
+        <property name="name" value="bin"></property>
+    </bean>
+
+</beans>

@@ -46,7 +46,8 @@
         <!-- <url-pattern>/session</url-pattern> -->
         <!-- <servlet-name>session</servlet-name> -->
     </filter-mapping>
-    
+
+    <!-- 过滤器配置 -->
     <listener>
         <listener-class>com.boot.listener.MyApplicationListener</listener-class>
     </listener>
