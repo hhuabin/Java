@@ -10,12 +10,18 @@
         id: 唯一标识，方便以后获取 Bean
         class: 类, bean 对象对应的类型
      -->
-    <bean id="helloBean" class="com.springioc.bean.HelloBean"></bean>
+
+    <!--
+        scope: singleton | prototype
+            singleton: 单例模式 （默认）
+            prototype: 多例模式
+    -->
+    <bean id="helloBean" class="com.springioc.bean.HelloBean" scope="prototype"></bean>
 
     <!--
         方式2: 静态工厂方法实例化
      -->
-    <bean id="helloBean2" class="com.springioc.bean.HelloBean" factory-method="createInstance"></bean>
+<!--    <bean id="helloBean2" class="com.springioc.bean.HelloBean" factory-method="createInstance"></bean>-->
 
     <bean id="userDao" class="com.springioc.dao.UserDao"></bean>
 

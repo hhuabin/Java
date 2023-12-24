@@ -15,4 +15,12 @@ public class HelloBean {
     public static HelloBean createInstance() {
         return helloBean;
     }
+
+    public void init() {
+        System.out.println("JavaBean init");
+    }
+
+    public void destory() {
+        System.out.println("JavaBean destory");
+    }
 }
