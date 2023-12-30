@@ -1,6 +1,7 @@
 package com.springioc;
 
 import com.springioc.bean.HelloBean;
+import com.springioc.bean.MyBean;
 import com.springioc.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
@@ -28,6 +29,15 @@ public class SpringIoCTest {
         // 获取 IOC 容器中的 bean
         UserService userService = applicationContext.getBean("userService", UserService.class);
         System.out.println(userService.getName());
+    }
+
+    @Test
+    public void testIOC2() {
+        // 获取 IOC 容器
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("springioc2.xml");
+        // 获取 IOC 容器中的 bean
+        MyBean myBean = (MyBean) applicationContext.getBean("myBean");
+        myBean.sayHello();
     }
 
     @Test

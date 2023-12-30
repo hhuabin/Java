@@ -25,12 +25,27 @@ public class RandomNumber {
 
         int num = scanner.nextInt();
 
-        TreeSet<Integer> treeSet = new TreeSet<>();
+        int[] result = new int[num];
+
+        for (int i = 0; i < num; i++) {
+            result[i] = scanner.nextInt();
+        }
+        Arrays.sort(result);
+
+        System.out.println(result[0]);
+        for (int i = 1; i < num; i++) {
+            if(result[i] != result[i-1]) {
+                System.out.println(result[i]);
+            }
+        }
+
+
+        /*TreeSet<Integer> treeSet = new TreeSet<>();
 
         for (int i = 0; i < num; i++) {
             treeSet.add(scanner.nextInt());
         }
 
-        treeSet.forEach(System.out::println);
+        treeSet.forEach(System.out::println);*/
     }
 }
