@@ -7,4 +7,5 @@
 
     <bean id="myBean" factory-bean="myFactory" factory-method="createInstance"></bean>
 
+    <bean id="helloBean" class="com.springioc.bean.HelloFactoryBean"></bean>
 </beans>

@@ -57,4 +57,18 @@ public class SpringIoCTest {
         HelloBean helloBean2 = (HelloBean) applicationContext.getBean(HelloBean.class);
         System.out.println(helloBean == helloBean2);
     }
+
+    @Test
+    public void testFactoryBean() {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("springioc2.xml");
+
+        // 获取HelloBean (FactoryBean.getObject)
+        HelloBean helloBean = applicationContext.getBean("helloBean", HelloBean.class);
+        System.out.println(helloBean);
+        System.out.println(helloBean.getName());
+
+        //如果想要获取FactoryBean对象, 直接在id前添加&符号即可!  &helloBean 这是一种固定的约束
+        Object helloFactoryBean = applicationContext.getBean("&helloBean");
+        System.out.println(helloFactoryBean);
+    }
 }

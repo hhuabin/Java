@@ -6,21 +6,14 @@ package com.springioc.bean;
  */
 public class HelloBean {
 
-    private static HelloBean helloBean = new HelloBean();
+    public String name;
 
-    public void sayHello() {
-        System.out.println("hello bean");
+    public String getName() {
+        return name;
     }
 
-    public static HelloBean createInstance() {
-        return helloBean;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void init() {
-        System.out.println("JavaBean init");
-    }
-
-    public void destory() {
-        System.out.println("JavaBean destory");
-    }
 }

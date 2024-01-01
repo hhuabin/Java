@@ -17,7 +17,7 @@ public class Main {
         ApplicationContext ioc = new ClassPathXmlApplicationContext("springioc.xml");
         // 获取 IOC 容器中的 bean
         HelloBean helloBean = (HelloBean) ioc.getBean("helloBean");
-        helloBean.sayHello();
+        // helloBean.sayHello();
 
         UserService userService = (UserService) ioc.getBean("userService");
         System.out.println(userService.getName());
