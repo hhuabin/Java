@@ -13,6 +13,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
+        System.out.println("基于XML方式管理Bean");
+
         // 获取 IOC 容器
         ApplicationContext ioc = new ClassPathXmlApplicationContext("springioc.xml");
         // 获取 IOC 容器中的 bean
