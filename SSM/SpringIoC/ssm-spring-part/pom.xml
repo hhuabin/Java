@@ -13,6 +13,7 @@
         <module>spring-service</module>
         <module>spring-ioc-annotation</module>
         <module>spring-ioc-java</module>
+        <module>spring-aop</module>
     </modules>
 
     <properties>
