@@ -40,5 +40,11 @@ public class AopTest {
         System.out.println("result=" + add);
     }
 
-
+    @Test
+    public void testAopXml(){
+        ApplicationContext ioc = new ClassPathXmlApplicationContext("aop.xml");
+        Calculator bean = ioc.getBean(Calculator.class);
+        int add = bean.add(1, 1);
+        System.out.println("result=" + add);
+    }
 }
