@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mybatis.mapper.DynamicSQLMapper">
+    <!-- List<Employee> getEmployeeByCondition(Employee employee); -->
+    <select id="getEmployeeByCondition" resultType="com.mybatis.bean.Employee">
+        SELECT * FROM t_emp
+        <where>
+            <if test="empId > 0">
+                emp_id = #{empId}
+            </if>
+            <if test="empName != null and empName != ''">
+                and emp_name = #{empName}
+            </if>
+        </where>
+    </select>
+
+    <!-- void updateEmployee(Employee employee); -->
+    <update id="updateEmployee">
+        update t_emp
+        <set>
+            <if test="empName != null">
+                emp_name=#{empName},
+            </if>
+            <if test="empSalary &lt; 3000">
+                emp_salary=#{empSalary},
+            </if>
+        </set>
+        where emp_id=#{empId}
+    </update>
+
+    <!-- int insertEmployees(@Param("employees") List<Employee> employees); -->
+    <insert id="insertEmployees">
+        insert into t_emp values
+        <foreach collection="employees" item="employee" separator=",">
+            (null, #{employee.empName}, #{employee.empSalary})
+        </foreach>
+    </insert>
+</mapper>

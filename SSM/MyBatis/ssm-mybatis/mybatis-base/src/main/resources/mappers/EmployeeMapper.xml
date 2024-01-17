@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace等于mapper接口类的全限定名,这样实现对应 -->
+<mapper namespace="com.mybatis.mapper.EmployeeMapper">
+    <!--
+        声明标签写sql语句 crud select insert update delete
+            id = 方法名
+            resultType = 返回值类型
+            标签内编写SQL语句
+        每个标签对应接口的一个方法! 方法的一个实现 !
+        注意: mapper接口不能重载!!!! 因为mapper.xml无法识别! 根据方法名识别!!
+     -->
+    <select id="selectEmployee" resultType="com.mybatis.bean.Employee">
+        <!-- #{empId}代表动态传入的参数,并且进行赋值!后面详细讲解 -->
+        select emp_id empId, ${name} empName, emp_salary empSalary from
+        t_emp where emp_id = #{empId}
+    </select>
+
+    <!--
+        传参实体类型：
+            传入实体的属性名即可
+     -->
+    <!-- int insertEmp(Employee employee); -->
+    <insert id="insertEmp" useGeneratedKeys="true" keyColumn="emp_id" keyProperty="empId">
+        insert into t_emp (emp_name, emp_salary) values (#{empName}, #{empSalary});
+    </insert>
+
+    <!-- List<Employee> selectAllEmployee(); -->
+    <select id="selectAllEmployee" resultType="com.mybatis.bean.Employee">
+        select * from t_emp;
+    </select>
+
+</mapper>

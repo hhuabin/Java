@@ -10,6 +10,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>mybatis-base</module>
+        <module>mybatis-multitable</module>
+        <module>mybatis-dynamicSQL</module>
     </modules>
 
     <properties>
