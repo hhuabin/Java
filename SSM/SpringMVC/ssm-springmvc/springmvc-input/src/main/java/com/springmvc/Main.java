@@ -7,6 +7,6 @@ package com.springmvc;
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
-        System.out.println("SpringMVC基础");
+        System.out.println("SpringMVC参数接收");
     }
 }

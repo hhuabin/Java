@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class JsonController {
 
     @PostMapping("data")
-    public String addPerson(@RequestBody Person person) {
+    public Person addPerson(@RequestBody Person person) {
         System.out.println("person=" + person.toString());
-        return person.toString();
+        return person;
     }
 }

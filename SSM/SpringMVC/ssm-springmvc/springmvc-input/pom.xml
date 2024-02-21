@@ -8,7 +8,7 @@
         <artifactId>ssm-springmvc</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <artifactId>springmvc-base</artifactId>
+    <artifactId>springmvc-input</artifactId>
     <packaging>war</packaging>
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -43,6 +43,7 @@
             <artifactId>spring-webmvc</artifactId>
         </dependency>
 
+        <!-- 加入jackson依赖，json类型处理的工具 -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>

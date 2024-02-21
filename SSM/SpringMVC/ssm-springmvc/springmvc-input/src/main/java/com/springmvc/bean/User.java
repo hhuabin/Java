@@ -12,6 +12,14 @@ public class User {
 
     private int age = 18;
 
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
     public void setName(String name) {
         this.name = name;
     }

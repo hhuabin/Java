@@ -9,7 +9,9 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>springmvc-base</module>
+        <module>springmvc-input</module>
+        <module>springmvc-output</module>
+        <module>springmvc-global-exception</module>
     </modules>
 
     <properties>
