@@ -10,7 +10,7 @@
         plugins?,environments?,databaseIdProvider?,mappers?
     -->
 
-    <!--引入jdbc.properties文件，可以使用${key}的方式访问value-->
+    <!-- 引入jdbc.properties文件，可以使用${key}的方式访问value -->
     <properties resource="jdbc.properties"/>
     
     <settings>

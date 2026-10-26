@@ -1,3 +1,7 @@
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 /**
  * @author bin
  * @date 2022-11-28-10:24
@@ -5,16 +9,11 @@
 public class HelloWord {
 
     public static void main(String[] args) {
-        Person person = new Person();
-        person.test();
+        int[] arr = {1, 2, 3, 4};
 
-        System.out.println("Hello World!");
-
-        test("binn", "bin");
-
-        byte a = 1;
-
-        test(a);
+        List<Integer> list = Arrays.stream(arr)
+                .boxed()
+                .collect(Collectors.toList());
     }
 
     static void test(String ...names) {

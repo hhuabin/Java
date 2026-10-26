@@ -20,6 +20,7 @@ import java.util.List;
  * @author bin
  * @date 2023-01-30-22:29
  */
+@CrossOrigin(origins = "*")
 @Controller
 @RequestMapping("/user")
 @CustomAnnotation(value = "bin")
@@ -36,17 +37,21 @@ public class UserController {
         System.out.println("sessionID: " + session.getId());
 
         UserResp userList = new UserResp();
-
-        List<User> list = userService.list();
-
-        userList.setUserList(list);
-        userList.success();
-
+        userList.setResult_code("0");
+        userList.setErr_msg("请求错误");
         return userList;
+
+//        List<User> list = userService.list();
+//
+//        userList.setUserList(list);
+//        userList.success();
+//
+//        return userList;
     }
 
+    @CrossOrigin(origins = "*")
     @ResponseBody
-    @GetMapping("/postlist")
+    @PostMapping("/postlist")
     @CustomAnnotation(value = "bin")
     public UserResp PostUserList(HttpServletRequest request, HttpServletResponse response) {
 //        System.out.println("请求进来了" + userReq.toString());
@@ -55,14 +60,17 @@ public class UserController {
         System.out.println(userId);
 
         UserResp userList = new UserResp();
-
-        List<User> list = userService.list();
-
-        userList.setUserList(list);
-
-        userList.success();
-
+        userList.setResult_code("1");
+        userList.setErr_msg("请求错误");
         return userList;
+
+//        List<User> list = userService.list();
+//
+//        userList.setUserList(list);
+//
+//        userList.success();
+//
+//        return userList;
     }
 
 }

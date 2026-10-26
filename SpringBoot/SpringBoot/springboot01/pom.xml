@@ -61,7 +61,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <!--优化lombok打包配置-->
+                <!-- 优化lombok打包配置 -->
                 <configuration>
                     <excludes>
                         <exclude>
