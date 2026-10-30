@@ -3,14 +3,14 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- Customer queryList(); -->
 <mapper namespace="com.mybatis.mapper.CustomerMapper">
     <resultMap id="customerMap" type="com.mybatis.bean.Customer">
         <id column="customer_id" property="customerId"/>
-        <result column="customer_name" property="customerName"/>
+        <!-- <result column="customer_name" property="customerName"/> -->
         <!--
-            property: 集合属性名
-            ofType: 集合的泛型类型
+            collection 集合：对多的关系
+             - property: Customer类 的属性名
+             - ofType: 类的全限定符
          -->
         <collection property="orderList" ofType="com.mybatis.bean.Order">
             <id column="order_id" property="orderId"/>
@@ -19,8 +19,10 @@
         </collection>
     </resultMap>
 
+    <!-- Customer queryList(); -->
     <select id="queryList" resultMap="customerMap">
         SELECT * FROM t_order
-        JOIN t_customer ON t_order.customer_id = t_customer.customer_id
+        JOIN t_customer
+        ON t_order.customer_id = t_customer.customer_id
     </select>
 </mapper>

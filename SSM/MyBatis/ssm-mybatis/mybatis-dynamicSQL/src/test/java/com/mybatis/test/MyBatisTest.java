@@ -24,8 +24,9 @@ public class MyBatisTest {
         DynamicSQLMapper mapper = sqlSession.getMapper(DynamicSQLMapper.class);
 
         Employee employee = new Employee();
-        employee.setEmpId(3);
-        employee.setEmpName("bin");
+        // 如果 empId 小于0，mybatis 会自动删除多余的 and
+        employee.setEmpId(-1);
+        employee.setEmpName("");
 
         List<Employee> employeeList = mapper.getEmployeeByCondition(employee);
 
@@ -68,15 +69,17 @@ public class MyBatisTest {
         SqlSession sqlSession = SqlSessionUtil.getSqlSession();
         DynamicSQLMapper mapper = sqlSession.getMapper(DynamicSQLMapper.class);
 
-        // 在查询功能开始之前开启分页功能
-        Page<Object> page = PageHelper.startPage(2, 4);
+        // 在查询功能开始之前开启分页功能，当前是第几页，获取几条数据
+        PageHelper.startPage(2, 4);
 
         Employee employee = new Employee();
 
+        // 获取分页后的数据
         List<Employee> employeeList = mapper.getEmployeeByCondition(employee);
-
-        PageInfo<Employee> pageInfo = new PageInfo<>(employeeList);
         employeeList.forEach(System.out::println);
+
+        // 将查询后的分页数据封装到 PageInfo 实体类中
+        PageInfo<Employee> pageInfo = new PageInfo<>(employeeList);
 
         // 当前页数据
         List<Employee> list = pageInfo.getList();

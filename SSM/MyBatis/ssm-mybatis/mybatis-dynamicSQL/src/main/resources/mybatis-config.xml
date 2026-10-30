@@ -29,28 +29,28 @@
 
     <!--
         environments: 配置连接数据库环境
-        default: 设置默认使用的环境 id
-    -->
+          - default: 设置默认使用的环境 id
+     -->
     <environments default="development">
         <!--
             environment: 设置一个具体的连接数据库的环境
-            id: 设置环境的唯一表示，不能重复
-        -->
+              - id: 设置环境的唯一表示，不能重复
+         -->
         <environment id="development">
             <!--
                 transactionManager: 设置事务管理器
-                type="JDBC" | "MANAGED"
-                JDBC: 设置使用 JDBC 原生的事务管理方式
-                MANAGED: 被管理，例如 Spring
-            -->
+                  - type="JDBC" | "MANAGED"
+                      - JDBC: 设置使用 JDBC 原生的事务管理方式
+                      - MANAGED: 被管理，例如 Spring
+             -->
             <transactionManager type="JDBC"/>
             <!--
                 dataSource: 设置数据源
-                type="POOLED" | "UNPOOLED" | "JNDI"
-                POOLED: 表示数据库连接池
-                UNPOOLED： 表示不使用数据库连接池
-                JNDI： 表示使用上下文中的数据源
-            -->
+                  - type="POOLED" | "UNPOOLED" | "JNDI"
+                      - POOLED：表示数据库连接池
+                      - UNPOOLED：表示不使用数据库连接池
+                      - JNDI：表示使用上下文中的数据源
+             -->
             <dataSource type="POOLED">
                 <!-- 建立数据库连接的具体信息 -->
                 <property name="driver" value="${jdbc.driver}"/>
@@ -64,12 +64,14 @@
     </environments>
 
     <mappers>
-        <!-- <mapper resource="mapper/DynamicSQLMapper.xml"/> -->
         <!--
-            以包的方式引入映射文件，但是必须满足于
+            以包的方式引入映射文件，包形式引入需要满足以下要求
                 1. mapper 接口和映射文件所在的包名必须一致
+                    如：
+                     - 接口文件位于 com.mybatis.mapper/xxx.java
+                     - xml 文件位于resources/com/mybatis/mapper/xxx.xml
                 2. mapper 接口和映射文件的名字必须一致
-        -->
+         -->
         <package name="com.mybatis.mapper"/>
     </mappers>
 

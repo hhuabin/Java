@@ -6,39 +6,42 @@
     
     <settings>
         <setting name="logImpl" value="STDOUT_LOGGING"/>
+        <!-- 开启驼峰映射 -->
         <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!-- 自动映射列到字段或属性 -->
+        <setting name="autoMappingBehavior" value="FULL"/>
     </settings>
 
     <!--
         environments: 配置连接数据库环境
-        default: 设置默认使用的环境 id
-    -->
+          - default: 设置默认使用的环境 id
+     -->
     <environments default="development">
         <!--
             environment: 设置一个具体的连接数据库的环境
-            id: 设置环境的唯一表示，不能重复
-        -->
+              - id: 设置环境的唯一表示，不能重复
+         -->
         <environment id="development">
             <!--
                 transactionManager: 设置事务管理器
-                type="JDBC" | "MANAGED"
-                JDBC: 设置使用 JDBC 原生的事务管理方式
-                MANAGED: 被管理，例如 Spring
-            -->
+                  - type="JDBC" | "MANAGED"
+                      - JDBC: 设置使用 JDBC 原生的事务管理方式
+                      - MANAGED: 被管理，例如 Spring
+             -->
             <transactionManager type="JDBC"/>
             <!--
                 dataSource: 设置数据源
-                type="POOLED" | "UNPOOLED" | "JNDI"
-                POOLED: 表示数据库连接池
-                UNPOOLED： 表示不使用数据库连接池
-                JNDI： 表示使用上下文中的数据源
-            -->
+                  - type="POOLED" | "UNPOOLED" | "JNDI"
+                      - POOLED：表示数据库连接池
+                      - UNPOOLED：表示不使用数据库连接池
+                      - JNDI：表示使用上下文中的数据源
+             -->
             <dataSource type="POOLED">
                 <!-- 建立数据库连接的具体信息 -->
                 <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
                 <property name="url" value="jdbc:mysql://localhost:3306/ssm"/>
                 <property name="username" value="root"/>
-                <property name="password" value="hhuabin"/>
+                <property name="password" value="root"/>
             </dataSource>
         </environment>
     </environments>
