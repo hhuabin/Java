@@ -11,21 +11,19 @@ import java.util.Objects;
  * @author bin
  * @date 2024-02-05 11:43
  */
-@Controller
+@RestController
 @RequestMapping("param")
 public class ParamController {
 
     @GetMapping("data")
-    @ResponseBody
     public String data(String name, int age) {
         System.out.println("name=" + name + " " + "age=" + age);
         return ("name=" + name + " " + "age=" + age);
     }
 
     @GetMapping("requestParam")
-    @ResponseBody
     public String requestParam(@RequestParam("name") String name,
-                               @RequestParam(required = false, defaultValue = "18") int age
+                               @RequestParam(value = "age", defaultValue = "18") Integer age
     ) {
         System.out.println("name=" + name + " " + "age=" + age);
         return ("name=" + name + " " + "age=" + age);
@@ -33,7 +31,6 @@ public class ParamController {
 
     // http://localhost:5000/param/mulForm?list=bin&list=18
     @GetMapping("mulForm")
-    @ResponseBody
     public String mulForm(@RequestParam List<String> list) {
         System.out.println(list.toString());
         return list.toString();
@@ -41,7 +38,6 @@ public class ParamController {
 
     // http://localhost:5000/param/addUser?name=bin
     @GetMapping (value = "addUser")
-    @ResponseBody
     public String addUser(User user) {
         System.out.println("user=" + user.toString());
         return user.toString();

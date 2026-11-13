@@ -1,5 +1,6 @@
 package com.boot.springweb.config;
 
+import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import org.springframework.context.annotation.Bean;
@@ -11,17 +12,20 @@ import org.springframework.context.annotation.Configuration;
  */
 
 /**
- * MybatisPlus拦截器
+ * MybatisPlus 插件
  */
 @Configuration
-public class MybatisPlusPageConfig {
+public class MybatisPlusConfig {
 
     @Bean
     public MybatisPlusInterceptor mybatisPlusInterceptor() {
-        // 1. 定义MP拦截器
+
+        // 定义 MybatisPlus 的插件集合
         MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
-        // 2. 添加具体的拦截器
-        interceptor.addInnerInterceptor(new PaginationInnerInterceptor());
+
+        // 添加分页拦截器
+        interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.MYSQL));
+
         return interceptor;
     }
 }

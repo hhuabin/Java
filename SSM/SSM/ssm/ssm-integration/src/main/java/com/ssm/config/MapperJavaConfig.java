@@ -23,6 +23,7 @@ import java.util.Properties;
  * @date 2024-02-22 10:44
  */
 
+// 持久层配置类
 @Configuration
 public class MapperJavaConfig {
 
@@ -53,7 +54,7 @@ public class MapperJavaConfig {
         PageInterceptor pageInterceptor = new PageInterceptor();
 
         Properties properties = new Properties();
-        properties.setProperty("helperDialect","mysql");
+        properties.setProperty("helperDialect", "mysql");
         pageInterceptor.setProperties(properties);
         sqlSessionFactoryBean.addPlugins(pageInterceptor);
 

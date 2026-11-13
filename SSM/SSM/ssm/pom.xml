@@ -33,7 +33,7 @@
     </properties>
 
     <dependencies>
-        <!--spring pom.xml依赖-->
+        <!-- spring pom.xml依赖 -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>

@@ -1,0 +1,31 @@
+package com.springmvc.config;
+
+import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
+/**
+ * @author bin
+ * @date 2024-01-18 15:52
+ */
+// TODO: SpringMVC 提供的接口，是替代 web.xml 的方案，更方便实现完全注解方式 ssm 处理!
+// TODO: Springmvc 框架会自动检查当前类的实现类，会自动加载 getRootConfigClasses / getServletConfigClasses 提供的配置类
+// TODO: getServletMappings 返回的地址 设置 DispatherServlet 对应处理的地址
+public class SpringMvcInit extends AbstractAnnotationConfigDispatcherServletInitializer {
+
+    // 指定 root 容器配置类
+    @Override
+    protected Class<?>[] getRootConfigClasses() {
+        return new Class[0];
+    }
+
+    // 指定 web 容器配置类
+    @Override
+    protected Class<?>[] getServletConfigClasses() {
+        return new Class[]{WebMvcConfig.class};
+    }
+
+    // 指定 dispatcherServlet 处理路径
+    @Override
+    protected String[] getServletMappings() {
+        return new String[]{"/"};
+    }
+}

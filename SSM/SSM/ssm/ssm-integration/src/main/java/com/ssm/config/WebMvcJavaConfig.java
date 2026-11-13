@@ -20,17 +20,19 @@ import org.springframework.web.servlet.config.annotation.*;
 @EnableWebMvc
 @ComponentScan("com.ssm.controller")
 public class WebMvcJavaConfig implements WebMvcConfigurer {
-    //开启静态资源
+    // 开启静态资源查找
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
         configurer.enable();
     }
 
+    // 配置 jsp 视图解析器
     @Override
     public void configureViewResolvers(ViewResolverRegistry registry) {
         registry.jsp("/WEB-INF/views/", ".jsp");
     }
 
+    // 添加拦截器
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
 

@@ -10,13 +10,13 @@ import org.springframework.stereotype.Component;
 public class User {
     private String name;
 
-    private int age = 18;
+    private Integer age = 18;
 
     public String getName() {
         return name;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
@@ -24,7 +24,7 @@ public class User {
         this.name = name;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
